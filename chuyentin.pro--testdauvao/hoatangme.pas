@@ -1,0 +1,20 @@
+program hoatangme;
+var a,b:array [1..1000000] of longint;
+i,j,n,m,s,x,y,max:longint;
+ok:boolean;
+begin
+readln(n,m,s);
+ok:=true;
+for i:=1 to n do read(a[i]);
+for j:=1 to m do
+begin
+if ok then begin
+read(b[j]);
+for i:=n downto 1 do
+        if a[i]+b[j]<=s then
+                if max<a[i]+b[j] then
+                        begin max:=a[i]+b[j]; x:=i; y:=j; end;
+                        if max=s then begin ok:=false; break; end; end;
+end;
+write(x,' ',y);
+end.
